@@ -99,7 +99,7 @@ EXAMPLES = r'''
       ssh_port: 22
       timeout: 5
     name: server1
-    state: disabled
+    status: disable
 '''
 
 RETURN = r'''

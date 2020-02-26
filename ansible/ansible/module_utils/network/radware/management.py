@@ -9,7 +9,7 @@ __metaclass__ = type
 from abc import abstractmethod
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.network.radware.common import BaseAPI, RadwareModuleError, build_specs_from_annotation, \
-    get_type_hints
+    get_type_hints, get_annotation_class
 try:
     from radware.sdk.exceptions import RadwareError
     from radware.sdk.management import DeviceManagement
@@ -89,9 +89,9 @@ class ManagementModule(BaseAPI):
                 if annotations:
                     for k in annotations.keys():
                         if k in self._base.params and self._base.params[k] is not None:
-                            func_args.update({k: translate(self._base.params[k], annotations[k])})
+                            func_args.update({k: translate(self._base.params[k], get_annotation_class(annotations[k]))})
                         elif k in kw and kw[k] is not None:
-                            func_args.update({k: translate(kw[k], annotations[k])})
+                            func_args.update({k: translate(kw[k], get_annotation_class(annotations[k]))})
 
                 func_result = func(**func_args)
             else:

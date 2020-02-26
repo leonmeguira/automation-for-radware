@@ -19,7 +19,7 @@
 __title__ = 'alteon-sdk'
 __description__ = 'Python Alteon SDK'
 __url__ = 'https://pypi.python.org/pypi/alteon-sdk'
-__version__ = '0.6b53'
+__version__ = '0.6b54'
 __author__ = 'Leon Meguira'
 __author_email__ = 'leonm@radware.com'
 __license__ = 'Apache 2.0'
